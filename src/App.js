@@ -6,8 +6,8 @@ import { Home, SignIn, SignUp, Browse } from './pages/';
 function App() {
   return (
     <Router>
-      <Route exact path="/">
-        <Home />
+      <Route exact path="/browse">
+        <Browse />
       </Route>
       <Route exact path="/signin">
         <SignIn />
@@ -15,8 +15,8 @@ function App() {
       <Route exact path="/signup">
         <SignUp />
       </Route>
-      <Route exact path="/browse">
-        <Browse />
+      <Route exact path={ROUTES.HOME}>
+        <Home />
       </Route>
     </Router>
   );
