@@ -16,7 +16,7 @@ export const Background = styled.div`
 export const Container = styled.div`
   display: flex;
   margin: 0 56px;
-  height: 64px;
+  height: 64 px;
   padding: 18px 0;
   justify-content: space-between;
   align-items: center;
