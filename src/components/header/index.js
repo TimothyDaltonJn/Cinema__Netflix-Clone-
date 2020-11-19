@@ -17,7 +17,7 @@ import {
 } from './styles/header';
 
 export default function Header({ bg = true, children, ...restProps }) {
-  return bg ? <Background {...restProps}>{children}</Background> : children;
+  return <Background {...restProps}>{children}</Background>;
 }
 
 Header.Feature = function HeaderFeature({ children, ...restProps }) {
@@ -45,11 +45,11 @@ Header.TextLink = function HeaderTextLink({ children, ...restProps }) {
 };
 
 Header.Frame = function HeaderFrame({ children, ...restProps }) {
-  return <Group {...restProps}>{children}</Group>;
+  return <Container {...restProps}>{children}</Container>;
 };
 
 Header.Picture = function HeaderPicture({ src, ...restProps }) {
-  return <Picture {...restProps}> src={`/images/users/${src}.png`}</Picture>;
+  return <Picture {...restProps} src={`/images/users/${src}.png`} />;
 };
 
 Header.Group = function HeaderGroup({ children, ...restProps }) {
