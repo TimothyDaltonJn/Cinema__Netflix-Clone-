@@ -6,6 +6,7 @@ import * as ROUTES from '../constants/routes';
 import logo from '../logo.svg';
 
 export function BrowseContainer({ slides }) {
+  const [searchTerm, setSearchTerm] = useState('');
   const [profile, setProfile] = useState({});
   const [loading, setLoading] = useState(true);
 
@@ -30,18 +31,19 @@ export function BrowseContainer({ slides }) {
             <Header.TextLink>Films</Header.TextLink>
           </Header.Group>
           <Header.Group>
+            <Header.Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
             <Header.Profile>
               <Header.Picture src={user.photoURL} />
               <Header.DropDown>
-                <Header.Group>
+                <Header.DropDownItem>
                   <Header.Picture src={user.photoURL} />
                   <Header.TextLink>{user.displayName}</Header.TextLink>
-                </Header.Group>
-                <Header.Group>
+                </Header.DropDownItem>
+                <Header.DropDownItem>
                   <Header.TextLink onClick={() => firebase.auth().signOut()}>
                     Sign out
                   </Header.TextLink>
-                </Header.Group>
+                </Header.DropDownItem>
               </Header.DropDown>
             </Header.Profile>
           </Header.Group>
@@ -54,6 +56,7 @@ export function BrowseContainer({ slides }) {
             clown, and the guise he projects in a futile attempt to feel like he's part of the world
             around him.
           </Header.Text>
+          <Header.PlayButton>Play</Header.PlayButton>
         </Header.Feature>
       </Header>
     </>
