@@ -4,6 +4,7 @@ import { FirebaseContext } from '../context/firebase';
 import { Card, Loading, Header } from '../components';
 import * as ROUTES from '../constants/routes';
 import logo from '../logo.svg';
+import { FooterContainer } from './footer';
 
 export function BrowseContainer({ slides }) {
   const [category, setCategory] = useState('series');
@@ -16,7 +17,6 @@ export function BrowseContainer({ slides }) {
   const user = firebase.auth().currentUser || {};
 
   useEffect(() => {
-    console.log('profile', profile);
     setTimeout(() => {
       setLoading(false);
     }, 3000);
@@ -88,15 +88,16 @@ export function BrowseContainer({ slides }) {
                 </Card.Item>
               ))}
             </Card.Entities>
-            {/* <Card.Feature category={category}>
-              <Player>
+            <Card.Feature category={category}>
+              {/* <Player>
                 <Player.Button />
                 <Player.Video srv="/videos/bunny.mp4" />
-              </Player>
-            </Card.Feature> */}
+              </Player> */}
+            </Card.Feature>
           </Card>
         ))}
       </Card.Group>
+      <FooterContainer />
     </>
   ) : (
     <SelectProfileContainer user={user} setProfile={setProfile} />
