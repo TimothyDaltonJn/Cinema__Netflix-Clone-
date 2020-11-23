@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
+
 export function IsUserRedirect({ user, loggedInPath, children, ...rest }) {
   return (
     <Route
@@ -8,6 +9,7 @@ export function IsUserRedirect({ user, loggedInPath, children, ...rest }) {
         if (!user) {
           return children;
         }
+
         if (user) {
           return (
             <Redirect
@@ -24,7 +26,7 @@ export function IsUserRedirect({ user, loggedInPath, children, ...rest }) {
   );
 }
 
-export function PotectedRoute({ user, children, ...rest }) {
+export function ProtectedRoute({ user, children, ...rest }) {
   return (
     <Route
       {...rest}
@@ -32,7 +34,8 @@ export function PotectedRoute({ user, children, ...rest }) {
         if (user) {
           return children;
         }
-        if (user) {
+
+        if (!user) {
           return (
             <Redirect
               to={{
@@ -42,6 +45,7 @@ export function PotectedRoute({ user, children, ...rest }) {
             />
           );
         }
+
         return null;
       }}
     />

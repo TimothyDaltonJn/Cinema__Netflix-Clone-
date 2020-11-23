@@ -31,7 +31,6 @@ export const Group = styled.div`
   ${({ margin }) => margin && `margin: ${margin}`};
   > ${Container}:first-of-type {
     @media (min-width: 1100px) {
-      margin-top: -150px;
     }
   }
 `;
@@ -85,9 +84,10 @@ export const Item = styled.div`
   margin-right: 5px;
   position: relative;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: transform 0.8s;
+
   &:hover {
-    transform: scale(1.3);
+    transform: scale(1.1);
     z-index: 99;
   }
   @media (min-width: 1200px) {

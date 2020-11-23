@@ -47,6 +47,7 @@ export default function SignUp() {
         <Form>
           <Form.Title>Sign Up</Form.Title>
           {error && <Form.Error>{error}</Form.Error>}
+
           <Form.Base onSubmit={handleSignup} method="POST">
             <Form.Input
               placeholder="First name"
@@ -60,21 +61,21 @@ export default function SignUp() {
             />
             <Form.Input
               type="password"
-              placeholder="password"
               value={password}
               autoComplete="off"
+              placeholder="Password"
               onChange={({ target }) => setPassword(target.value)}
             />
-            <Form.Submit disabled={isInvalid} type="submit" data-testid="sign-in">
-              Sign In
+            <Form.Submit disabled={isInvalid} type="submit" data-testid="sign-up">
+              Sign Up
             </Form.Submit>
           </Form.Base>
+
           <Form.Text>
-            Already a user? <Form.Link to="/signin"> Sign in now!</Form.Link>
+            Already a user? <Form.Link to="/signin">Sign in now.</Form.Link>
           </Form.Text>
           <Form.TextSmall>
-            This page is protected by Google reCAPTCHA to ensure you're not a bot.{' '}
-            <Form.Link to="/">Learn more.</Form.Link>
+            This page is protected by Google reCAPTCHA to ensure you're not a bot. Learn more.
           </Form.TextSmall>
         </Form>
       </HeaderContainer>
